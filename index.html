@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoomable Exoplanet Map</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      position: relative;
+    }
+    #exoplanetMap {
+      display: block;
+      cursor: grab;
+    }
+    .popup {
+      position: absolute;
+      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      padding: 10px;
+      display: none;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+    .zoom-buttons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 100;
+    }
+    .zoom-buttons button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .nav-buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-buttons-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+.nav-buttons button {
+  padding: 5px;
+  font-size: 16px;
+  margin: 2px;
+}
+    .nav-buttons button {
+      padding: 5px;
+      font-size: 16px;
+      margin: 2px;
+    }
+    .layer-buttons {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+    }
+    .layer-buttons button {
+      padding: 10px;
+      font-size: 16px;
+      margin-right: 5px;
+    }
+    #minimapCanvas {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      border: 1px solid #ccc;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="exoplanetMap"></canvas>
+  <div id="planet-info" class="popup"></div>
+  <div class="zoom-buttons">
+    <button id="zoomInButton">Zoom In</button>
+    <button id="zoomOutButton">Zoom Out</button>
+  </div>
+<div class="nav-buttons">
+  <button id="panUpButton">▲</button><br>
+  <div class="nav-buttons-row">
+    <button id="panLeftButton">◀</button>
+    <button id="panDownButton">▼</button>
+    <button id="panRightButton">▶</button>
+  </div>
+</div>
+  <div class="layer-buttons">
+    <button id="switchLayerButton">Switch Layer</button>
+    <button id="toggleConstellationsButton">Toggle Constellations</button>
+  </div>
+  <canvas id="minimapCanvas" width="200" height="100"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
